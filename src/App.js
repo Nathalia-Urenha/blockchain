@@ -13,7 +13,7 @@ import { Blockchain } from './Pages/Blockchain';
 function App() {
   return (
     <>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Routes>
           <Route exact path='Depositar' element={<Depositar />} />
           <Route exact path='Sacar' element={<Sacar />} />
