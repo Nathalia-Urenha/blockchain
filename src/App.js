@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+} from "react-router-dom";
 
+import { Depositar } from './Pages/Depositar';
+import { Sacar } from './Pages/Sacar';
+import { Home } from './Pages/Home';
+import { Saldo } from './Pages/Saldo';
+import { Blockchain } from './Pages/Blockchain';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Routes>
+          <Route exact path='Depositar' element={<Depositar />} />
+          <Route exact path='Sacar' element={<Sacar />} />
+          <Route exact path='/' element={<Home />} />
+          <Route exact path='Saldo' element={<Saldo />} />
+          <Route exact path='Blockchain' element={<Blockchain />} />
+        </Routes>
+      </Router>
+    </>
   );
 }
 
