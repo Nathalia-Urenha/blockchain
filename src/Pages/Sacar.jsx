@@ -5,7 +5,7 @@ import { encryptCesar } from "../helpers/criptografia";
 import { validarSenha } from "../helpers/validarSenha";
 
 const blockchainObj = new Blockchain();
-let blockchain = localStorage.getItem('blockchain');
+let blockchain = JSON.parse(localStorage.getItem('blockchain'));
 
 const Saque = (valorSaque, senhaCriptografada) => {
     valorSaque = parseFloat(valorSaque);
@@ -36,7 +36,7 @@ export const Sacar = () => {
                     setvalorSaque(0);
                 } else {
                     alert('Senha incorreta');
-                    blockchain = localStorage.getItem('blockchain');
+                    blockchain = JSON.parse(localStorage.getItem('blockchain'));
                 }
             }
             

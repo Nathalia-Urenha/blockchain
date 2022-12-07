@@ -17,6 +17,7 @@ export const Saldo = () => {
                     setSaldo(blockchain.blocks[blockchain.blocks.length - 1].dadosConta.saldo);
                 } else {
                     alert('Senha incorreta');
+                    blockchain = JSON.parse(localStorage.getItem('blockchain'));
                 }
             } 
         

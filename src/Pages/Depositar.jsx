@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Blockchain from "../helpers/Blockchain";
+import Blockchain from "../helpers/Blockchain.js";
 import { useState } from "react";
 import { encryptCesar } from "../helpers/criptografia";
 import { validarSenha } from "../helpers/validarSenha";
@@ -33,6 +33,7 @@ export const Depositar = () => {
                     setValorDeposito(0);
                 } else {
                     alert('Senha incorreta');
+                    blockchain = JSON.parse(localStorage.getItem('blockchain'));
                 }
             }
             
