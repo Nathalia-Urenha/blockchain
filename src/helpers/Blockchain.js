@@ -1,6 +1,6 @@
 const Block = require('./Block');
 
-class Blockchain {
+export default class Blockchain {
     constructor(difficulty = 1) {
         this.blocks = [new Block()];
         this.index = 1;
@@ -42,5 +42,3 @@ class Blockchain {
         return true;
     };
 };
-
-module.exports = Blockchain;

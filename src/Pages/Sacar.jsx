@@ -28,7 +28,7 @@ export const Sacar = () => {
         if(senha === ''){
             alert('Digite uma senha');
         } else {
-            if(blockchain === null || blockchain === undefined || blockchain === ''){
+            if(senha === ''){
                 alert('Não há saldo para saque');
             } else{
                 if(validarSenha(senha, localStorage.getItem('senha'))){
@@ -36,6 +36,7 @@ export const Sacar = () => {
                     setvalorSaque(0);
                 } else {
                     alert('Senha incorreta');
+                    blockchain = localStorage.getItem('blockchain');
                 }
             }
             
