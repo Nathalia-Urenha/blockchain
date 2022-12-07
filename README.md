@@ -1,4 +1,4 @@
-# Instruções como rodar o projeto
+# Instruções de como rodar o projeto
 
 ## Clonar repositório
 
