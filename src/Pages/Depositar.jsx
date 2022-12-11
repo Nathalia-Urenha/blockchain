@@ -1,19 +1,11 @@
 import { Link } from "react-router-dom";
-import Blockchain from "../helpers/Blockchain.js";
 import { useState } from "react";
 import { encryptCesar } from "../helpers/criptografia";
 import { validarSenha } from "../helpers/validarSenha";
+import { Deposito } from "../helpers/Transacoes";
 
-const blockchainObj = new Blockchain();
-let blockchain = localStorage.getItem('blockchain');
+let blockchain = localStorage.getItem("blockchain");
 
-const Deposito = (valorDeposito, senhaCriptografada) => {
-    valorDeposito = parseFloat(valorDeposito);
-    const saldo = blockchainObj.getLastBlock().dadosConta.saldo;
-    const novoSaldo = saldo + valorDeposito;
-    blockchainObj.addBlock({deposito: valorDeposito, saldo: novoSaldo, saque: blockchainObj.getLastBlock().dadosConta.saque, senha: senhaCriptografada});
-    return blockchainObj;
-}
 export const Depositar = () => {
     const [valorDeposito, setValorDeposito] = useState(0);
     const [senha, setSenha] = useState('');

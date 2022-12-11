@@ -1,29 +1,16 @@
 import { Link } from "react-router-dom";
-import Blockchain from "../helpers/Blockchain";
 import { useState } from "react";
 import { encryptCesar } from "../helpers/criptografia";
 import { validarSenha } from "../helpers/validarSenha";
+import { Saque } from "../helpers/Transacoes";
 
-const blockchainObj = new Blockchain();
-let blockchain = JSON.parse(localStorage.getItem('blockchain'));
 
-const Saque = (valorSaque, senhaCriptografada) => {
-    valorSaque = parseFloat(valorSaque);
-    let blockchain = JSON.parse(localStorage.getItem('blockchain'));
-    const saldo = blockchain.blocks[blockchain.blocks.length - 1].dadosConta.saldo;
-    if(saldo >= valorSaque){
-        const novoSaldo = saldo - valorSaque;
-        blockchainObj.addBlock({deposito: 0, saldo: novoSaldo, saque: valorSaque, senha: senhaCriptografada});
-    } else {
-        alert('Saldo insuficiente');
-    }
-    return blockchainObj;
-}
+let blockchain = localStorage.getItem("blockchain");
+
 export const Sacar = () => {
     const [valorSaque, setvalorSaque] = useState(0);
     const [senha, setSenha] = useState('');
     
-
     const handleClick = () => {
         if(senha === ''){
             alert('Digite uma senha');
@@ -39,13 +26,11 @@ export const Sacar = () => {
                     blockchain = JSON.parse(localStorage.getItem('blockchain'));
                 }
             }
-            
+
         } 
         
         localStorage.setItem('blockchain', JSON.stringify(blockchain, null, 2));
     };
-
-
     return (
         <div className="container">
             <div className="card">
