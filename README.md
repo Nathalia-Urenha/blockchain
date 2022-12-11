@@ -8,6 +8,7 @@ Em seu terminal rode o seguinte comando:
 ### Instalar Dependências
 
 Você vai precisar ter o node.js instalado em sua máquina, a versão do node.js que foi utilizado nesse projeto é a 12.22.7.
+
 Para instalar as dependências rode o comando em seu terminal:
 
 ### `npm install`
